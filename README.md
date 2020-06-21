@@ -11,8 +11,8 @@ This repository also has a **secondary aim** of **promoting code agnostic practi
 
 
 ## Authors:  
-Dr Erika Duan (for the tutorials)  
-Dr Chuanxin Liu (for fixing my occasional coding bugs)  
+**Dr Erika Duan** (for the tutorials)  
+**Dr Chuanxin Liu** (for fixing Erika's occasional coding bugs)  
 
 
 ## Tutorials:   
@@ -33,7 +33,7 @@ Dr Chuanxin Liu (for fixing my occasional coding bugs)
 
 ## Other references:  
 
-+ **Writing mathematical operations in LaTex/R** [Last accessed June 2020] https://en.wikibooks.org/wiki/LaTeX/Mathematics#Fractions_and_Binomials  
++ **Writing mathematical operations in LaTex/R** https://en.wikibooks.org/wiki/LaTeX/Mathematics#Fractions_and_Binomials *[Last accessed June 2020]*  
 
 + **Understanding basic calculus**, S. K. Chung. www.math.nagoya-u.ac.jp/~richard/teaching/f2016/BasicCalculus.pdf  
 
@@ -41,4 +41,4 @@ Dr Chuanxin Liu (for fixing my occasional coding bugs)
 
 + **Introduction to matrices**, D. Rowell. http://web.mit.edu/2.14/www/Handouts/Matrices.pdf  
 
-+ **Introduction to matrices** [Last accessed March 2020] http://www.statpower.net/Content/312/Handout/Matrix.pdf  
++ **Introduction to matrices** http://www.statpower.net/Content/312/Handout/Matrix.pdf *[Last accessed March 2020]*  
