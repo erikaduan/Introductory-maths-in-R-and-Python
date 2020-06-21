@@ -5,6 +5,17 @@ Introduction to exponents in R and Python
       - [Using exponents in R](#using-exponents-in-r)
       - [Using exponents in Python](#using-exponents-in-python)
       - [Algebraic identities](#algebraic-identities)
+  - [Exponential functions](#exponential-functions)
+      - [Exponential functions in R](#exponential-functions-in-r)
+          - [Case study 1: Least squares coefficient estimates for
+            simple linear
+            regression](#case-study-1-least-squares-coefficient-estimates-for-simple-linear-regression)
+      - [Exponential functions in
+        Python](#exponential-functions-in-python)
+          - [Case study 2: Modelling coronovirus
+            growth](#case-study-2-modelling-coronovirus-growth)
+  - [The natural exponential
+    function](#the-natural-exponential-function)
 
 # Algebraic rules for exponents
 
@@ -74,7 +85,7 @@ power_table %>%
        y = "Values")  
 ```
 
-<img src="10_algebra_introduction_files/figure-gfm/unnamed-chunk-4-1.png" width="75%" style="display: block; margin: auto;" />
+<img src="../02_figures/10_exponents-R-increase-power.png" width="70%" style="display: block; margin: auto;" />
 
 ## Using exponents in Python
 
@@ -137,13 +148,11 @@ g = sns.FacetGrid(power_table,
 g.map_dataframe(sns.lineplot,
      x = "base_number",
      y = "value")
-```
 
-``` python
 plt.show()
 ```
 
-<img src="10_algebra_introduction_files/figure-gfm/unnamed-chunk-6-1.png" width="60%" style="display: block; margin: auto;" />
+<img src="../02_figures/10_exponents-Python-increase-power.png" width="70%" style="display: block; margin: auto;" />
 
 ## Algebraic identities
 
@@ -152,3 +161,102 @@ real values of ![a](https://latex.codecogs.com/png.latex?a "a") and
 ![b](https://latex.codecogs.com/png.latex?b "b").
 
 <img src="../02_figures/10_exponents-entities.jpg" width="70%" style="display: block; margin: auto;" />
+
+# Exponential functions
+
+## Exponential functions in R
+
+### Case study 1: Least squares coefficient estimates for simple linear regression
+
+In simple linear regression (![Y \\approx \\beta\_0 +
+\\beta\_1X](https://latex.codecogs.com/png.latex?Y%20%5Capprox%20%5Cbeta_0%20%2B%20%5Cbeta_1X
+"Y \\approx \\beta_0 + \\beta_1X")), the values of
+![\\beta\_1](https://latex.codecogs.com/png.latex?%5Cbeta_1 "\\beta_1")
+and ![\\beta\_0](https://latex.codecogs.com/png.latex?%5Cbeta_0
+"\\beta_0") are chosen as such to minimise the residual sum or squares
+(RSS).
+
+<img src="../02_figures/10_exponents-exponential-functions-least-squares-coefficient-estimates.jpg" width="70%" style="display: block; margin: auto;" />
+
+``` r
+#-----example dataset from data:trees-----
+data <- datasets::trees
+
+# treat girth as the x variable and volume as the y variable
+
+data %>%
+  ggplot(aes(x = Girth, 
+             y = Volume)) + 
+  geom_point() + 
+  expand_limits(x = 0,
+                y = 0) + 
+  labs(title = "Plot of girth versus volume of trees")
+```
+
+![](10_exponents_introduction_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
+<img src="../02_figures/10_exponents-exponential-functions-girth-vs-volume.png" width="60%" style="display: block; margin: auto;" />
+
+``` r
+#-----build simple linear regression model-----
+
+model <- lm(Volume ~ Girth, data = data)
+summary(model)
+```
+
+    ## 
+    ## Call:
+    ## lm(formula = Volume ~ Girth, data = data)
+    ## 
+    ## Residuals:
+    ##    Min     1Q Median     3Q    Max 
+    ## -8.065 -3.107  0.152  3.495  9.587 
+    ## 
+    ## Coefficients:
+    ##             Estimate Std. Error t value Pr(>|t|)    
+    ## (Intercept) -36.9435     3.3651  -10.98 7.62e-12 ***
+    ## Girth         5.0659     0.2474   20.48  < 2e-16 ***
+    ## ---
+    ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    ## 
+    ## Residual standard error: 4.252 on 29 degrees of freedom
+    ## Multiple R-squared:  0.9353, Adjusted R-squared:  0.9331 
+    ## F-statistic: 419.4 on 1 and 29 DF,  p-value: < 2.2e-16
+
+``` r
+#> Call:
+#> lm(formula = Volume ~ Girth, data = data)
+#> 
+#> Residuals:
+#>    Min     1Q Median     3Q    Max 
+#> -8.065 -3.107  0.152  3.495  9.587 
+#> 
+#> Coefficients:
+#>            Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept) -36.9435     3.3651  -10.98 7.62e-12 ***
+#> Girth         5.0659     0.2474   20.48  < 2e-16 ***
+#> ---
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#> 
+#> Residual standard error: 4.252 on 29 degrees of freedom
+#> Multiple R-squared:  0.9353, Adjusted R-squared:  0.9331 
+#> F-statistic: 419.4 on 1 and 29 DF,  p-value: < 2.2e-16 
+
+# we can visualise this simple linear regression model 
+
+data %>% 
+  ggplot(aes(x = Girth, y = Volume)) +
+  geom_point() +
+  stat_smooth(method = "lm", col = "firebrick") +
+  expand_limits(x = 0,
+                y = 0) + 
+  labs(title = "Simple linear model fitted to data")
+```
+
+![](10_exponents_introduction_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+
+## Exponential functions in Python
+
+### Case study 2: Modelling coronovirus growth
+
+# The natural exponential function

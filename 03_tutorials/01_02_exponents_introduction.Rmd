@@ -58,7 +58,7 @@ Exponents are annotated using `^` in R.
 
 Increasing the power of a base number greatly increases the resulting value (how greatly the values increase will be covered later under the derivatives rule).  
 
-```{r, fig.align = 'center', out.width = "75%"}
+```{r, eval = FALSE}
 #-----visualising relationship between base number and power in R-----
 base_numbers <- c(seq(from = 1,
                       to = 50,
@@ -96,6 +96,9 @@ power_table %>%
        y = "Values")  
 ```
 
+```{r, echo = FALSE, fig.align = 'center', fig.show = 'hold', out.width = '70%'}
+knitr::include_graphics("../02_figures/10_exponents-R-increase-power.png")
+```
 
 ## Using exponents in Python  
 
@@ -120,7 +123,7 @@ power_table %>%
 #> True
 ```
 
-```{python, message = FALSE, results = 'hide', fig.align = 'center', out.width = "60%"}
+```{python, eval = FALSE}
 #-----visualising relationship between base number and power in Python-----
 import numpy as np
 import pandas as pd
@@ -157,6 +160,9 @@ g.map_dataframe(sns.lineplot,
 plt.show()
 ```
 
+```{r, echo = FALSE, fig.align = 'center', fig.show = 'hold', out.width = '70%'}
+knitr::include_graphics("../02_figures/10_exponents-Python-increase-power.png")
+```
 
 ## Algebraic identities  
 
@@ -165,3 +171,108 @@ The following equalities are called entities as they are true for all real value
 ```{r, echo = FALSE, fig.align = 'center', fig.show = 'hold', out.width = '70%'}
 knitr::include_graphics("../02_figures/10_exponents-entities.jpg")
 ```
+
+
+# Exponential functions    
+
+## Exponential functions in R   
+
+### Case study 1: Least squares coefficient estimates for simple linear regression   
+
+In simple linear regression ($Y \approx \beta_0 + \beta_1X$), the values of $\beta_1$ and $\beta_0$ are chosen as such to minimise the residual sum or squares (RSS). 
+
+```{r, echo = FALSE, fig.align = 'center', fig.show = 'hold', out.width = '70%'}
+knitr::include_graphics("../02_figures/10_exponents-exponential-functions-least-squares-coefficient-estimates.jpg")
+```
+
+```{r}
+#-----example dataset from data:trees-----
+data <- datasets::trees
+
+# treat girth as the x variable and volume as the y variable
+
+data %>%
+  ggplot(aes(x = Girth, 
+             y = Volume)) + 
+  geom_point() + 
+  expand_limits(x = 0,
+                y = 0) + 
+  labs(title = "Plot of girth versus volume of trees")
+```
+
+```{r, echo = FALSE, fig.align = 'center', fig.show = 'hold', out.width = '60%'}
+knitr::include_graphics("../02_figures/10_exponents-girth-vs-volume.png")
+```
+
+```{r}
+#-----build simple linear regression model-----
+
+model <- lm(Volume ~ Girth, data = data)
+summary(model)
+
+#> Call:
+#> lm(formula = Volume ~ Girth, data = data)
+#> 
+#> Residuals:
+#>    Min     1Q Median     3Q    Max 
+#> -8.065 -3.107  0.152  3.495  9.587 
+#> 
+#> Coefficients:
+#>            Estimate Std. Error t value Pr(>|t|)    
+#> (Intercept) -36.9435     3.3651  -10.98 7.62e-12 ***
+#> Girth         5.0659     0.2474   20.48  < 2e-16 ***
+#> ---
+#> Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+#> 
+#> Residual standard error: 4.252 on 29 degrees of freedom
+#> Multiple R-squared:  0.9353,	Adjusted R-squared:  0.9331 
+#> F-statistic: 419.4 on 1 and 29 DF,  p-value: < 2.2e-16 
+
+# we can visualise this simple linear regression model 
+
+data %>% 
+  ggplot(aes(x = Girth, y = Volume)) +
+  geom_point() +
+  stat_smooth(method = "lm", col = "firebrick") +
+  expand_limits(x = 0,
+                y = 0) + 
+  labs(title = "Simple linear model fitted to data")
+```
+
+```{r, echo = FALSE, fig.align = 'center', fig.show = 'hold', out.width = '60%'}
+knitr::include_graphics("../02_figures/10_exponents-fitted-girth-vs-volume.png")
+```
+
+```{r}
+#-----finding the least squares coefficient estimates-----  
+
+# find sample mean for x and y
+
+x_sample_mean <- sum(data$Girth, na.rm = T) / nrow(data)
+y_sample_mean <- sum(data$Volume, na.rm = T) / nrow(data)
+
+# calculate residuals  
+
+data <- data %>%
+  mutate(x_residuals = Girth - x_sample_mean,
+         x_residuals_squared = x_residuals ^ 2, 
+         y_residuals = Volume - y_sample_mean,
+         x_y_residuals = x_residuals * y_residuals)
+
+sum(data$x_y_residuals) / sum(data$x_residuals_squared)  
+
+#> [1] 5.065856
+```
+
+
+## Exponential functions in Python  
+
+### Case study 2: Modelling coronovirus growth  
+
+```{r}
+
+```
+
+
+# The natural exponential function  
+
