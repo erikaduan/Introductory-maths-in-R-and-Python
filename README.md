@@ -7,7 +7,7 @@ This repository contains a series of tutorials designed to help R users explore 
 
 The **primary aim** of this repository is to **provide beginner friendly mathematics tutorials** for users who are interested in understanding machine learning algorithms (also known as statistical programming) but do not come from a mathematics background/ have forgotten all their high school or undergraduate mathematics studies.  
 
-This repository also has a **secondary aim** of **promoting code agnostic practices**, by highlighting how **the same functions can be performed in both R and Python**.  
+This repository also has a **secondary aim** of **promoting code agnostic practices**, by highlighting how the same functions can be performed in both R and Python.  
 
 
 ## Authors:  
