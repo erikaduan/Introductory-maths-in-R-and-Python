@@ -5,9 +5,9 @@ This repository contains a series of tutorials designed to help R users explore 
 
 ## Aim:  
 
-The aim of this repository is to provide resources to help users who are interested in practicing machine learning but do not come from a mathematics background/ have forgotten all their specialist mathematics knowledge.  
+The **primary aim** of this repository is to **provide beginner friendly mathematics tutorials** for users who are interested in understanding machine learning algorithms (also known as statistical programming) but do not come from a mathematics background/ have forgotten all their high school or undergraduate mathematics studies.  
 
-This repository also has a secondary aim of **promoting code agnostic practices**, by highlighting how the same functions can be performed in both R and Python.  
+This repository also has a **secondary aim** of **promoting code agnostic practices**, by highlighting how **the same functions can be performed in both R and Python**.  
 
 
 ## Authors:  
@@ -33,17 +33,12 @@ Dr Chuanxin Liu (for fixing my occasional coding bugs)
 
 ## Other references:  
 
-+ Writing mathematical operations in LaTex/R   
-  + https://en.wikibooks.org/wiki/LaTeX/Mathematics#Fractions_and_Binomials  
++ **Writing mathematical operations in LaTex/R** [Last accessed June 2020] https://en.wikibooks.org/wiki/LaTeX/Mathematics#Fractions_and_Binomials  
 
-+ Understanding basic calculus by S. K. Chung 
-  + www.math.nagoya-u.ac.jp/~richard/teaching/f2016/BasicCalculus.pdf  
++ **Understanding basic calculus**, S. K. Chung. www.math.nagoya-u.ac.jp/~richard/teaching/f2016/BasicCalculus.pdf  
 
-+ A brief introduction to calculus by R. Molzon 
-  + https://www.ms.uky.edu/~lee/amspcalc/calcmolzon.pdf)  
++ **A brief introduction to calculus**, R. Molzon. https://www.ms.uky.edu/~lee/amspcalc/calcmolzon.pdf  
 
-+ Introduction to matrices by D. Rowell
-  + http://web.mit.edu/2.14/www/Handouts/Matrices.pdf  
++ **Introduction to matrices**, D. Rowell. http://web.mit.edu/2.14/www/Handouts/Matrices.pdf  
 
-+ Introduction to matrices
-  + http://www.statpower.net/Content/312/Handout/Matrix.pdf  
++ **Introduction to matrices** [Last accessed March 2020] http://www.statpower.net/Content/312/Handout/Matrix.pdf  
